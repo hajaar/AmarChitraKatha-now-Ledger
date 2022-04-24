@@ -14,22 +14,39 @@ class MyListClass: ObservableObject {
 struct ContentView: View {
     @ObservedObject var ack = MyListClass()
     @State private var searchText: String = ""
+    @State private var propertySelection = 1
     
 
     var searchResults: [Issue] {
         if searchText.isEmpty {
-            return ack.issues
+            return ack.issues.filter {
+                switch propertySelection {
+                case 1:
+                    return $0.isOwned == true || $0.isOwned == false
+                case 2:
+                    return $0.isOwned == true
+                case 3:
+                    return $0.isOwned == false
+                default:
+                    return $0.isOwned == true || $0.isOwned == false
+                }
+            }
         } else {
-            return ack.issues.filter { $0.issueTitle.contains(searchText) }
+            return ack.issues.filter { $0.issueTitle.contains(searchText)}
         }
     }
+
+
     var body: some View {
-        NavigationView {
+
+
+        NavigationView  {
             List {
                 ForEach(searchResults, id: \.self) { issue in   //replace with SearchResults
                     NavigationLink(destination: IssueDetailView(issue: self.$ack.issues[self.ack.issues.firstIndex(of: issue)!])) {
                         IssueCompactView(issue: self.$ack.issues[self.ack.issues.firstIndex(of: issue)!])
                     }
+
                 }
             }
 
@@ -40,11 +57,21 @@ struct ContentView: View {
             }
             .navigationTitle("ACK Now Ledger")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Picker(selection: $propertySelection, label: Text("Display Property")) {
+                        Text("All").tag(1)
+                        Text("Owned").tag(2)
+                        Text("Not Owned").tag(3)
+
+                    }
+                }
+            }
         }
-    }
-    func scanACK() {
 
     }
+
+
 }
 
 struct ContentView_Previews: PreviewProvider {

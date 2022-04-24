@@ -28,6 +28,7 @@ struct IssueDetailView: View {
                     .padding()
                 Spacer()
             }
+            .scaledToFit()
         }
         .navigationTitle("\(issue.issueTitle)")
         .navigationBarTitleDisplayMode(.inline)

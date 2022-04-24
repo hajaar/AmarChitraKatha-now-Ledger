@@ -14,9 +14,9 @@ struct IssueCompactView: View {
     var body: some View {
 
             HStack(alignment: .center) {
-                Image(systemName: issue.isOwned ? "checkmark.square" : "square")
+                Image(systemName: issue.isOwned ? "checkmark" : "")
                     .font(.title.bold())
-                    .foregroundColor(issue.isOwned ? .green : .primary)
+                    .foregroundColor(.green)
                 let im = self.issue.getImage()
                 im
                     .resizable()
