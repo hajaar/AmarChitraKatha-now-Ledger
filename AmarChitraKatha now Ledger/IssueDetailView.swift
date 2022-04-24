@@ -17,7 +17,6 @@ struct IssueDetailView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 400, alignment: .center)
-//                    .overlay(Rectangle().stroke(Color.accentColor, lineWidth: 4))
                     .shadow(color: .primary, radius: 5, x: 5, y: 5)
 
 

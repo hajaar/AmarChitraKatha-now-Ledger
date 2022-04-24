@@ -29,10 +29,10 @@ struct ContentView: View {
                 ForEach(searchResults, id: \.self) { issue in   //replace with SearchResults
                     NavigationLink(destination: IssueDetailView(issue: self.$ack.issues[self.ack.issues.firstIndex(of: issue)!])) {
                         IssueCompactView(issue: self.$ack.issues[self.ack.issues.firstIndex(of: issue)!])
-                        .background(issue.isOwned ? .green : .clear)
                     }
                 }
             }
+
             .searchable(text: $searchText) {
                 ForEach(searchResults, id: \.self) { result in
                     Text("Are you looking for \(result.issueTitle)?").searchCompletion(result.issueTitle  )
