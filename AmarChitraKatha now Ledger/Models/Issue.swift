@@ -5,12 +5,13 @@
 //  Created by Kartik Narayanan on 24/04/22.
 //
 import Foundation
-struct Issue {
+struct Issue: Hashable {
     var id = UUID()
     var issueNumber: String
     var issueTitle: String
     var issueYear: String
     var isOwned: Bool = false
+    var issueImage: String = "book"
 
     init(_ issueNumber: String, _ issueTitle: String, _ issueYear: String) {
         self.id = UUID()
@@ -19,5 +20,7 @@ struct Issue {
         self.issueYear = issueYear
         self.isOwned = false
     }
+
+    
 }
 
