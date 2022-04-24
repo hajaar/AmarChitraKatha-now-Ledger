@@ -20,7 +20,7 @@ struct Issue: Hashable {
     var issueNumber: String
     var issueTitle: String
     var issueYear: String
-    @State var isOwned: Bool = false
+    var isOwned: Bool = false
     var issueImage: String = ""
 
     init(_ issueNumber: String, _ issueTitle: String, _ issueYear: String) {

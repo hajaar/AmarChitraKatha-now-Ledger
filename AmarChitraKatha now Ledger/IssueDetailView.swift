@@ -25,7 +25,7 @@ struct IssueDetailView: View {
                     .padding()
                 Text("Publication Year: \(issue.issueYear)")
                     .padding()
-                Toggle("Do you own it?", isOn: $issue.isOwned)
+                Toggle("Do you own it?", isOn: self.$issue.isOwned)
                     .padding()
                 Spacer()
             }
