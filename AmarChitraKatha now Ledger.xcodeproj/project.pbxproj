@@ -14,6 +14,7 @@
 		F288295728150F18004E6FC2 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288295628150F18004E6FC2 /* Issue.swift */; };
 		F288295928150F42004E6FC2 /* ACK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288295828150F41004E6FC2 /* ACK.swift */; };
 		F288295C28151812004E6FC2 /* IssueCompactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288295B28151812004E6FC2 /* IssueCompactView.swift */; };
+		F288295E28152AF7004E6FC2 /* IssueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288295D28152AF7004E6FC2 /* IssueDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		F288295628150F18004E6FC2 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		F288295828150F41004E6FC2 /* ACK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACK.swift; sourceTree = "<group>"; };
 		F288295B28151812004E6FC2 /* IssueCompactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCompactView.swift; sourceTree = "<group>"; };
+		F288295D28152AF7004E6FC2 /* IssueDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				F288294828150E00004E6FC2 /* AmarChitraKatha_now_LedgerApp.swift */,
 				F288294A28150E00004E6FC2 /* ContentView.swift */,
 				F288295B28151812004E6FC2 /* IssueCompactView.swift */,
+				F288295D28152AF7004E6FC2 /* IssueDetailView.swift */,
 				F288294C28150E02004E6FC2 /* Assets.xcassets */,
 				F288294E28150E02004E6FC2 /* Preview Content */,
 			);
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F288294B28150E00004E6FC2 /* ContentView.swift in Sources */,
+				F288295E28152AF7004E6FC2 /* IssueDetailView.swift in Sources */,
 				F288294928150E00004E6FC2 /* AmarChitraKatha_now_LedgerApp.swift in Sources */,
 				F288295C28151812004E6FC2 /* IssueCompactView.swift in Sources */,
 				F288295928150F42004E6FC2 /* ACK.swift in Sources */,

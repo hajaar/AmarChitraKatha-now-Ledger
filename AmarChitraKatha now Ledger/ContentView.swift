@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var searchText: String = ""
+    
 
     var searchResults: [Issue] {
         if searchText.isEmpty {
@@ -21,20 +22,10 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(searchResults, id: \.self) { issue in
-       //             NavigationLink(destination: Text(issue.issueTitle)) {
+                    NavigationLink(destination: IssueDetailView(issueNumber: issue.issueNumber)) {
                         IssueCompactView(issueNumber: issue.issueNumber)
                         .background(issue.isOwned ? .green : .clear)
-                            .swipeActions {
-                                Button("Owned") {
-                                    var i = ACK.issues.filter() {$0.issueNumber == issue.issueNumber}
-                                    i[0].isOwned = true
-                                    print(i[0].issueNumber)
-                                    print(i[0].isOwned)
-                                }
-                                .tint(.green)
-                            }
-
-        //            }
+                    }
                 }
             }
             .searchable(text: $searchText) {
@@ -43,6 +34,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("ACK Now Ledger")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     func scanACK() {
