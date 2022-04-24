@@ -27,8 +27,8 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(searchResults, id: \.self) { issue in
-                    NavigationLink(destination: IssueDetailView(issueNumber: issue.issueNumber)) {
-                        IssueCompactView(issueNumber: issue.issueNumber)
+                    NavigationLink(destination: IssueDetailView(issue: self.$ack.issues[self.ack.issues.firstIndex(of: issue)!])) {
+                        IssueCompactView(issue: self.$ack.issues[self.ack.issues.firstIndex(of: issue)!])
                         .background(issue.isOwned ? .green : .clear)
                     }
                 }

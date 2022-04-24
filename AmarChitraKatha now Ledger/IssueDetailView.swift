@@ -8,38 +8,34 @@ import Foundation
 import SwiftUI
 
 struct IssueDetailView: View {
-    var issueNumber: String
+    @Binding var issue: Issue
     var body: some View {
-        let issue = ACK.issues.filter() {$0.issueNumber == issueNumber}
-        
         NavigationView {
             VStack {
-                let im = issue[0].getImage()
+                let im = issue.getImage()
                 im
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 400, alignment: .center)
-                    .overlay(Rectangle().stroke(Color.accentColor, lineWidth: 4))
+//                    .overlay(Rectangle().stroke(Color.accentColor, lineWidth: 4))
+                    .shadow(color: .primary, radius: 5, x: 5, y: 5)
 
 
-                    Text("Number: \(issue[0].issueNumber)")
-                Text("Publication Year: \(issue[0].issueYear)")
-                Toggle("Do you own it?", isOn: issue[0].$isOwned)
-
-
+                    Text("Number: \(issue.issueNumber)")
+                    .padding()
+                Text("Publication Year: \(issue.issueYear)")
+                    .padding()
+                Toggle("Do you own it?", isOn: $issue.isOwned)
+                    .padding()
                 Spacer()
             }
         }
-        .navigationTitle("\(issue[0].issueTitle)")
+        .navigationTitle("\(issue.issueTitle)")
         .navigationBarTitleDisplayMode(.inline)
 
     }
 }
 
-struct IssueDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        IssueCompactView(issueNumber: "11")
-    }
-}
+
 
 
