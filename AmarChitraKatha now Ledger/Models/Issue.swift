@@ -27,9 +27,5 @@ struct Issue: Hashable {
         return Image(uiImage: uiImage)
 
     }
-
-
-
-    
 }
 
