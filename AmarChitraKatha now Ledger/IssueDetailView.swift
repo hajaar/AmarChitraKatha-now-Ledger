@@ -11,6 +11,7 @@ struct IssueDetailView: View {
     var issueNumber: String
     var body: some View {
         let issue = ACK.issues.filter() {$0.issueNumber == issueNumber}
+        
         NavigationView {
             VStack {
                 let im = issue[0].getImage()
@@ -20,10 +21,12 @@ struct IssueDetailView: View {
                     .frame(width: 300, height: 400, alignment: .center)
                     .overlay(Rectangle().stroke(Color.accentColor, lineWidth: 4))
 
-                Section("Issue Number") {
-                    Text("\(issue[0].issueNumber)")
 
-                }.padding()
+                    Text("Number: \(issue[0].issueNumber)")
+                Text("Publication Year: \(issue[0].issueYear)")
+                Toggle("Do you own it?", isOn: issue[0].$isOwned)
+
+
                 Spacer()
             }
         }

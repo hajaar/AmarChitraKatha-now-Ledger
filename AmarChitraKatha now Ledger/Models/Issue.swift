@@ -7,11 +7,20 @@
 import Foundation
 import SwiftUI
 struct Issue: Hashable {
+    static func == (lhs: Issue, rhs: Issue) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+
+    }
+
     var id = UUID()
     var issueNumber: String
     var issueTitle: String
     var issueYear: String
-    var isOwned: Bool = false
+    @State var isOwned: Bool = false
     var issueImage: String = ""
 
     init(_ issueNumber: String, _ issueTitle: String, _ issueYear: String) {

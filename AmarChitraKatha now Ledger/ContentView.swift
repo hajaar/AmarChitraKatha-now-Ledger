@@ -7,15 +7,20 @@
 
 import SwiftUI
 
+class MyListClass: ObservableObject {
+    @Published var issues = ACK.issues
+}
+
 struct ContentView: View {
+    @ObservedObject var ack = MyListClass()
     @State private var searchText: String = ""
     
 
     var searchResults: [Issue] {
         if searchText.isEmpty {
-            return ACK.issues
+            return ack.issues
         } else {
-            return ACK.issues.filter { $0.issueTitle.contains(searchText) }
+            return ack.issues.filter { $0.issueTitle.contains(searchText) }
         }
     }
     var body: some View {
